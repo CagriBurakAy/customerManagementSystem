@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="FILESDB")
+@Table(name = "FILESDB")
 public class Files {
 
     @Id
@@ -27,8 +27,9 @@ public class Files {
         this.fileType = fileType;
         this.data = data;
     }
-    public Files(int id,String fileName, String fileType, byte[] data) {
-        this.id=id;
+
+    public Files(int id, String fileName, String fileType, byte[] data) {
+        this.id = id;
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;

@@ -13,22 +13,23 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<Customer> listAll(){
+    public List<Customer> listAll() {
         return customerRepository.findAll();
     }
 
-    public void save(Customer customer){
+    public void save(Customer customer) {
         customerRepository.save(customer);
     }
 
-    public Customer get(Integer id){
+    public Customer get(Integer id) {
         return customerRepository.findById(id).get();
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         customerRepository.deleteById(id);
     }
-    public void update(Customer customer,Integer id){
+
+    public void update(Customer customer, Integer id) {
 
         customerRepository.save(customer);
     }

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CustomerFilesRepository extends JpaRepository<CustomerFiles,Integer> {
+public interface CustomerFilesRepository extends JpaRepository<CustomerFiles, Integer> {
     List<CustomerFiles> findByCustomerId(Integer id);
 }

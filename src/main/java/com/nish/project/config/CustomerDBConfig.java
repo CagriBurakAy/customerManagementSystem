@@ -1,4 +1,5 @@
 package com.nish.project.config;
+
 import java.util.HashMap;
 
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "customerEntityManagerFactory", transactionManagerRef = "customerTransactionManager", basePackages = {
-        "com.nish.project.repository.customer" })
+        "com.nish.project.repository.customer"})
 public class CustomerDBConfig {
 
     @Bean(name = "customerDataSource")
@@ -30,7 +31,7 @@ public class CustomerDBConfig {
 
     @Bean(name = "customerEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean customerEntityManagerFactory(EntityManagerFactoryBuilder builder,
-                                                                           @Qualifier("customerDataSource") DataSource dataSource) {
+                                                                               @Qualifier("customerDataSource") DataSource dataSource) {
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL82Dialect");

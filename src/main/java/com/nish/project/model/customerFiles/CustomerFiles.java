@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="CUSTOMERFILESDB")
+@Table(name = "CUSTOMERFILESDB")
 public class CustomerFiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

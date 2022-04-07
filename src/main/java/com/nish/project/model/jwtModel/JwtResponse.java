@@ -9,7 +9,7 @@ public class JwtResponse {
     private String jwtToken;
 
     public JwtResponse(String token) {
-        this.jwtToken=token;
+        this.jwtToken = token;
     }
 
     public String getJwtToken() {

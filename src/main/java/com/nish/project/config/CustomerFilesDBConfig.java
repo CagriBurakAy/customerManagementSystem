@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "customerFilesEntityManagerFactory", transactionManagerRef = "customerFilesTransactionManager", basePackages = {
-        "com.nish.project.repository.customerfiles" })
+        "com.nish.project.repository.customerfiles"})
 public class CustomerFilesDBConfig {
     @Bean(name = "customerFilesDataSource")
     @ConfigurationProperties(prefix = "spring.customerfiles.datasource")
@@ -30,7 +30,7 @@ public class CustomerFilesDBConfig {
 
     @Bean(name = "customerFilesEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean customerFilesEntityManagerFactory(EntityManagerFactoryBuilder builder,
-                                                                            @Qualifier("customerFilesDataSource") DataSource dataSource) {
+                                                                                    @Qualifier("customerFilesDataSource") DataSource dataSource) {
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");

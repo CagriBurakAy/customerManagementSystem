@@ -22,15 +22,16 @@ public class HomeController {
     private JwtUtility jwtUtility;
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "Welcome";
     }
 
     @PostMapping("/authenticate")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest) throws Exception {
 
-        try{
+        try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             jwtRequest.getUsername(),

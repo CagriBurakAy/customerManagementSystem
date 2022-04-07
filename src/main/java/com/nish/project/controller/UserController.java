@@ -62,21 +62,21 @@ public class UserController {
     public String update(@RequestBody Customer customer, @PathVariable Integer id) {
         try {
             customerService.update(customer, id);
-            return "Customer "+id+" updated.";
+            return "Customer " + id + " updated.";
 
         } catch (NoSuchElementException e) {
-            return "Customer "+id+" could not update.";
+            return "Customer " + id + " could not update.";
         }
     }
 
     @DeleteMapping("/deleteCustomer/{id}")
     public String delete(@PathVariable Integer id) {
         try {
-        customerService.delete(id);
-        return "Deleted Customer with id " + id;
+            customerService.delete(id);
+            return "Deleted Customer with id " + id;
 
         } catch (NoSuchElementException e) {
-            return "Customer "+id+" could not delete.";
+            return "Customer " + id + " could not delete.";
         }
     }
 
@@ -119,9 +119,9 @@ public class UserController {
 
             filesService.deleteFile(id);
             return "Deleted File with id " + id;
-        }catch (NoSuchElementException e) {
-        return "File "+id+" could not delete.";
-    }
+        } catch (NoSuchElementException e) {
+            return "File " + id + " could not delete.";
+        }
     }
 
     @GetMapping("/getAllFiles")
@@ -132,10 +132,10 @@ public class UserController {
     @PutMapping("/files/{id}")
     public String updatefile(@RequestParam("file") MultipartFile file, @PathVariable int id) {
         try {
-        filesService.storeFile2(file,id);
+            filesService.storeFile2(file, id);
             return "Updated File with id " + id;
-        }catch (NoSuchElementException e) {
-            return "File "+id+" could not update.";
+        } catch (NoSuchElementException e) {
+            return "File " + id + " could not update.";
         }
     }
 
@@ -149,7 +149,7 @@ public class UserController {
         try {
             customerFilesService.save(customerFiles);
             return "New Custormer File Added";
-        }catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return "Customer File could not update.";
         }
     }
@@ -157,10 +157,11 @@ public class UserController {
     @GetMapping("/getCustomerFile/{customerId}")
     public List<CustomerFiles> getCustomerFile(@PathVariable Integer customerId) {
 
-            List<CustomerFiles> customerFiles = customerFilesService.get(customerId);
-            return customerFiles;
+        List<CustomerFiles> customerFiles = customerFilesService.get(customerId);
+        return customerFiles;
 
     }
+
     @PutMapping("/updateCustomerFile/{id}")
     public String updateCustomerFileById(@RequestBody CustomerFiles customerFiles, Integer id) {
 
@@ -173,11 +174,13 @@ public class UserController {
         }
 
     }
+
     @GetMapping("/getCustomerFileById/{Id}")
     public CustomerFiles getCustomerFileById(@PathVariable Integer Id) {
         CustomerFiles customerFiles = customerFilesService.getbyId(Id);
         return customerFiles;
     }
+
     @DeleteMapping("/deleteCustomerFile/{id}")
     public String deleteCustomerById(@PathVariable int id) {
         try {

@@ -25,7 +25,7 @@ public class FilesService {
 
         try {
             // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
+            if (fileName.contains("..")) {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
@@ -36,27 +36,30 @@ public class FilesService {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
+
     public Files storeFile2(MultipartFile file, int id) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
             // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
+            if (fileName.contains("..")) {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
-            Files dbFile = new Files(id,fileName, file.getContentType(), file.getBytes());
+            Files dbFile = new Files(id, fileName, file.getContentType(), file.getBytes());
 
             return filesRepository.save(dbFile);
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
+
     public Files getFile(int fileId) throws FileNotFoundException {
         return filesRepository.findById(fileId)
                 .orElseThrow(() -> new FileNotFoundException("File not found with id " + fileId));
     }
+
     public void deleteFile(int fileId) {
         filesRepository.deleteById(fileId);
     }
@@ -69,6 +72,7 @@ public class FilesService {
         filesRepository.save(databaseFile);
 
     }
+
     public void update(Files databaseFile, int id) {
         deleteFile(id);
         databaseFile.setId(id);
