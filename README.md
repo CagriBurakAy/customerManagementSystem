@@ -130,5 +130,9 @@ http://localhost:8080/user/updateCustomerFile/1
 }
 
 To Delete CustomerFiles By Id DELETE
+
 http://localhost:8080/user/deleteCustomerFile/1
 
+# ER Diagram
+
+![NISH_ERDiagram](https://user-images.githubusercontent.com/26979943/162211856-6fe08cc0-8a0a-4d3c-ac92-3b008ac99159.jpeg)
