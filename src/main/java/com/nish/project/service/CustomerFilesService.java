@@ -22,12 +22,14 @@ public class CustomerFilesService {
     public List<CustomerFiles> get(Integer id){
         return customerFilesRepository.findByCustomerId(id);
     }
+    public CustomerFiles getbyId(Integer id){
+        return customerFilesRepository.findById(id).get();
+    }
 
     public void delete(Integer id){
         customerFilesRepository.deleteById(id);
     }
     public void update(CustomerFiles infoHolder,Integer id){
-        //musteriRepository.deleteById(id);
         customerFilesRepository.save(infoHolder);
     }
 

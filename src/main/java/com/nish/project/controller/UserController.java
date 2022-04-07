@@ -173,6 +173,19 @@ public class UserController {
         }
 
     }
+    @GetMapping("/getCustomerFileById/{Id}")
+    public CustomerFiles getCustomerFileById(@PathVariable Integer Id) {
+        CustomerFiles customerFiles = customerFilesService.getbyId(Id);
+        return customerFiles;
+    }
+    @DeleteMapping("/deleteCustomerFile/{id}")
+    public String deleteCustomerById(@PathVariable int id) {
+        try {
 
-
+            customerFilesService.delete(id);
+            return "Deleted CustomerFile with id " + id;
+        } catch (NoSuchElementException e) {
+            return "Customer File " + id + " could not delete.";
+        }
+    }
 }

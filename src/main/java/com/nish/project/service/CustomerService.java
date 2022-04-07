@@ -17,8 +17,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public void save(Customer musteri){
-        customerRepository.save(musteri);
+    public void save(Customer customer){
+        customerRepository.save(customer);
     }
 
     public Customer get(Integer id){
@@ -28,8 +28,8 @@ public class CustomerService {
     public void delete(Integer id){
         customerRepository.deleteById(id);
     }
-    public void update(Customer musteri,Integer id){
-        //musteriRepository.deleteById(id);
-        customerRepository.save(musteri);
+    public void update(Customer customer,Integer id){
+
+        customerRepository.save(customer);
     }
 }
