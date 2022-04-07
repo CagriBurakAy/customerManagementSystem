@@ -90,7 +90,7 @@ To Add File multiple file POST
 
 http://localhost:8080/user/uploadMultipleFiles
 
-form-data KEY="file"
+form-data KEY="files"
 
 You can add VALUE, paying attention to the file size and request size indicated in `application.properties`
 
